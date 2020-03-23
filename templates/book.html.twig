@@ -1,0 +1,15 @@
+{% extends 'common/base.html.twig' %}
+
+{% block contenu %}
+    <main>
+        <div>
+            <h1 class="titre">{{ book.title }}</h1>
+            <h2 class="soustitre">{{ book.author }}</h2>
+            <P>Résumé : {{ book.resume }}</P>
+            <p>Nombre de pages : {{ book.nbPages }}</p>
+            <h3>
+                <a href="{{ path('books') }}">Retour à l'accueil</a>
+            </h3>
+        </div>
+    </main>
+{% endblock %}

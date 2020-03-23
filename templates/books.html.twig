@@ -1,0 +1,17 @@
+{% extends 'common/base.html.twig' %}
+
+{% block livres %}
+    <h1>Liste des livres de la bibliothèque</h1>
+    <main>
+        {% for book in books %}
+        <div class="livres">
+            <h2>
+                <a href="{{ path ('book', {'id' : book.id }) }}">{{ book.title }}</a>
+            </h2>
+            <p>({{ book.nbPages }} pages)</p>
+            <h3>Auteur : {{ book.author }}</h3>
+        </div>
+        {% endfor %}
+    </main>
+
+{% endblock %}

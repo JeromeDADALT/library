@@ -1,6 +1,6 @@
 {% extends 'common/base.html.twig' %}
 
-{% block contenu %}
+{% block bookContent %}
     <main>
         <div>
             <h1 class="titre">{{ book.title }}</h1>
@@ -8,7 +8,7 @@
             <P>Résumé : {{ book.resume }}</P>
             <p>Nombre de pages : {{ book.nbPages }}</p>
             <h3>
-                <a href="{{ path('books') }}">Retour à l'accueil</a>
+                <a href="{{ path('books_list') }}">Retour à l'accueil</a>
             </h3>
         </div>
     </main>

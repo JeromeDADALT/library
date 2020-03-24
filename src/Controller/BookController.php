@@ -3,16 +3,18 @@
 
 namespace App\Controller;
 
+use App\Entity\Book;
 use App\Repository\BookRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class HomeController extends AbstractController
+class BookController extends AbstractController
 {
     /**
-     * @Route("/books", name="books")
+     * @Route("/books/list", name="books_list")
      */
     public function books (BookRepository $bookRepository) {
         $books = $bookRepository->findAll();
@@ -25,7 +27,7 @@ class HomeController extends AbstractController
     }
 
     /**
-     * @Route("/book/{id}", name="book")
+     * @Route("/book/show/{id}", name="book_show")
      */
     public function book (BookRepository $bookRepository, $id) {
         $book = $bookRepository->find($id);
@@ -35,5 +37,23 @@ class HomeController extends AbstractController
             'book' => $book
         ]);
     }
+
+    /**
+     * @Route("/book/insert", name="insert_book")
+     */
+    public function insertBook (EntityManagerInterface $entityManager) {
+        $book = new Book();
+
+        $book -> setTitle('nouveau titre');
+        $book -> setResume('résumé du livre');
+        $book -> setAuthor('auteur du livre ajouté');
+        $book -> setNbPages(103);
+
+        $entityManager -> persist($book);
+        $entityManager -> flush();
+
+        return new Response('Le livre est bien enregistré'); die;
+    }
+
 
 }

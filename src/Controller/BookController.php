@@ -41,18 +41,35 @@ class BookController extends AbstractController
     /**
      * @Route("/book/insert", name="insert_book")
      */
-    public function insertBook (EntityManagerInterface $entityManager) {
+    public function insertBook (EntityManagerInterface $entityManager, Request $request) {
         $book = new Book();
 
-        $book -> setTitle('nouveau titre');
-        $book -> setResume('résumé du livre');
-        $book -> setAuthor('auteur du livre ajouté');
-        $book -> setNbPages(103);
+        $title = $request->query->get('title');
+        $resume = $request->query->get('resume');
+        $author = $request->query->get('author');
+        $nbPages = $request->query->get('nbPages');
+
+        $book -> setTitle($title);
+        $book -> setResume($resume);
+        $book -> setAuthor($author);
+        $book -> setNbPages($nbPages);
 
         $entityManager -> persist($book);
         $entityManager -> flush();
 
-        return new Response('Le livre est bien enregistré'); die;
+        return new Response('Le livre est bien enregistré');
+    }
+
+    /**
+     * @Route("/book/delete/{id}", name="delete_book")
+     */
+    public function deleteBook (BookRepository $bookRepository, EntityManagerInterface $entityManager, $id ) {
+        $book = $bookRepository -> find($id);
+
+        $entityManager -> remove($book);
+        $entityManager -> flush();
+
+        return new Response('Le livre a bien été supprimé');
     }
 
 

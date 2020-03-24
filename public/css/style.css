@@ -1,3 +1,9 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 h1 {
     background-color: #8959A8;
     text-align: center;
@@ -25,13 +31,12 @@ a:hover {
     color: aqua;
 }
 
-p {
-    padding: 10px;
-}
-
 main {
     display: flex;
-    width: 90%;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
     margin: 0 auto;
 }
 
@@ -40,9 +45,8 @@ main {
     width: 30%;
     border: 2px solid #8959A8;
     border-radius: 5%;
-    padding: 10px;
     text-align: center;
-    height: 250px;
+    height: auto;
 }
 
 .titre {
@@ -52,4 +56,12 @@ main {
 .soustitre {
     font-size: 30px;
     font-style: italic;
+}
+
+.lien {
+    margin: 10px;
+}
+
+.milieu {
+    justify-content: center;
 }

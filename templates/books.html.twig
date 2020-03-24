@@ -10,7 +10,9 @@
             </h2>
             <p>({{ book.nbPages }} pages)</p>
             <h3>Auteur : {{ book.author }}</h3>
-            <a href="{{ path('delete_book', {'id' : book.id}) }}">Supprimer ce livre</a>
+            <div class="lien">
+                <a href="{{ path('delete_book', {'id' : book.id}) }}">Supprimer ce livre</a>
+            </div>
         </div>
         {% endfor %}
     </main>

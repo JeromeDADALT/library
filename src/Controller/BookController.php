@@ -69,7 +69,8 @@ class BookController extends AbstractController
         $entityManager->remove($book);
         $entityManager->flush();
 
-        return new Response('Le livre a bien été supprimé');
+        //return new Response('Le livre a bien été supprimé');
+        return $this->render('delete.html.twig');
     }
 
     /**
@@ -83,17 +84,21 @@ class BookController extends AbstractController
         $entityManager->persist($book);
         $entityManager->flush();
 
-        return new Response('La modification a bien été effectuée');
-
+        //return new Response('La modification a bien été effectuée');
+        return $this->render('update.html.twig');
     }
 
     /**
      * @Route("/book/search", name="book_search")
      */
-    public function searchByResume (BookRepository $bookRepository) {
-        $books = $bookRepository->getByWordInResume();
+    public function searchByResume (BookRepository $bookRepository, Request $request) {
+        $word = $request->query->get('word');
+        $books = $bookRepository->getByWordInResume($word);
 
-        dump($books); die;
+        return $this->render('books.html.twig',
+            [
+                'books' => $books
+            ]);
     }
 
 

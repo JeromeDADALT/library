@@ -2,6 +2,14 @@
 
 {% block library %}
     <h1>Liste des livres de la bibliothèque</h1>
+    <div class="search">
+        <form method="get" action="{{ path('book_search') }}">
+                <p>Recherche par mot-clé</p>
+                <input type="text" name="word" placeholder="Entrez un mot à rechercher">
+                <input id="searchButton" type="submit" value="Rechercher">
+        </form>
+    </div>
+
     <main>
         {% for book in books %}
         <div class="livres">

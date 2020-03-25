@@ -20,8 +20,16 @@
     {% block bookContent %}
     {% endblock %}
 
-    <footer>
+    {% block bookUpdate %}
+    {% endblock %}
 
+    {% block bookDelete %}
+    {% endblock %}
+
+    <footer>
+        <h3>
+            <a href="{{ path('books_list') }}">Retour à l'accueil</a>
+        </h3>
     </footer>
 
 </body>

@@ -14,9 +14,9 @@ class BookRepository extends ServiceEntityRepository
         parent::__construct($registry, Book::class);
     }
 
-    public function getByWordInResume ()
+    public function getByWordInResume ($word)
     {
-        $word = 'jeunesse';
+        //$word = 'jeunesse';
 
         $queryBuilder = $this->createQueryBuilder('b');
         $query = $queryBuilder->select('b')

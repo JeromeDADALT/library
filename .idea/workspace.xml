@@ -5,10 +5,11 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/BookController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/BookController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/BookRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/BookRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/book.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/book.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/books.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/books.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/book.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/book/book.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/books.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/book/books.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/common/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/common/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/delete.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/book/delete.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/update.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/book/update.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -158,6 +159,9 @@
     <property name="list.type.of.created.stylesheet" value="CSS" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/templates/book" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/vendor" />
@@ -173,7 +177,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1584954403393</updated>
-      <workItem from="1584954404911" duration="38871000" />
+      <workItem from="1584954404911" duration="52446000" />
     </task>
     <servers />
   </component>
@@ -185,10 +189,14 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="443" y="260" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1440.877@0.23.1440.877" timestamp="1584969737284" />
-    <state x="447" y="274" key="NewPhpClassDialog" timestamp="1584970003006">
+    <state x="451" y="212" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1585149232938">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="447" y="274" key="NewPhpClassDialog/0.23.1440.877@0.23.1440.877" timestamp="1584970003006" />
+    <state x="451" y="212" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.877@0.23.1440.877" timestamp="1585149232938" />
+    <state x="447" y="274" key="NewPhpClassDialog" timestamp="1585142663442">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="447" y="274" key="NewPhpClassDialog/0.23.1440.877@0.23.1440.877" timestamp="1585142663442" />
     <state x="537" y="381" key="NewPhpFileDialog" timestamp="1584961113597">
       <screen x="0" y="23" width="1440" height="877" />
     </state>

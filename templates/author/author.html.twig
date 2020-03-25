@@ -1,0 +1,11 @@
+{% extends 'common/base.html.twig' %}
+
+{% block authorContent %}
+    <main class="milieu">
+        <div>
+            <h1 class="titre">{{ author.name }} {{ author.firstName }}</h1>
+            <h2 class="soustitre">({{ author.birthDate | date("d/m/Y") }} - {{ author.deathDate | date("d/m/Y") }})</h2>
+            <P>Biographie : {{ author.biography }}</P>
+        </div>
+    </main>
+{% endblock %}

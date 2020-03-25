@@ -19,7 +19,7 @@ class BookController extends AbstractController
     public function books (BookRepository $bookRepository) {
         $books = $bookRepository->findAll();
 
-        return $this->render('books.html.twig',
+        return $this->render('book/books.html.twig',
             [
                 'books' => $books
             ]
@@ -32,7 +32,7 @@ class BookController extends AbstractController
     public function book (BookRepository $bookRepository, $id) {
         $book = $bookRepository->find($id);
 
-        return $this->render('book.html.twig',
+        return $this->render('book/book.html.twig',
         [
             'book' => $book
         ]);
@@ -70,7 +70,7 @@ class BookController extends AbstractController
         $entityManager->flush();
 
         //return new Response('Le livre a bien été supprimé');
-        return $this->render('delete.html.twig');
+        return $this->render('book/delete.html.twig');
     }
 
     /**
@@ -85,7 +85,7 @@ class BookController extends AbstractController
         $entityManager->flush();
 
         //return new Response('La modification a bien été effectuée');
-        return $this->render('update.html.twig');
+        return $this->render('book/update.html.twig');
     }
 
     /**
@@ -95,9 +95,10 @@ class BookController extends AbstractController
         $word = $request->query->get('word');
         $books = $bookRepository->getByWordInResume($word);
 
-        return $this->render('books.html.twig',
+        return $this->render('book/search.html.twig',
             [
-                'books' => $books
+                'books' => $books,
+                'word' => $word
             ]);
     }
 

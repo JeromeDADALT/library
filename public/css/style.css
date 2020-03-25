@@ -40,6 +40,10 @@ form {
     padding: 10px;
 }
 
+p {
+    text-align: center;
+}
+
 main {
     display: flex;
     flex-wrap: wrap;
@@ -84,4 +88,7 @@ main {
 
 #searchButton {
     width: 100px;
+    height: 25px;
+    border-radius: 10%;
+    margin-left: 10px;
 }

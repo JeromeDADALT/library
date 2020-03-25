@@ -26,9 +26,24 @@
     {% block bookDelete %}
     {% endblock %}
 
+    {% block authors %}
+    {% endblock %}
+
+    {% block authorContent %}
+    {% endblock %}
+
+    {% block authorUpdate %}
+    {% endblock %}
+
+    {% block authorDelete %}
+    {% endblock %}
+
     <footer>
         <h3>
-            <a href="{{ path('books_list') }}">Retour à l'accueil</a>
+            <a href="{{ path('books_list') }}">Accueil des livres</a>
+        </h3>
+        <h3>
+            <a href="{{ path('authors_list') }}">Accueil des auteurs</a>
         </h3>
     </footer>
 

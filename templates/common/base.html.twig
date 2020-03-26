@@ -39,12 +39,20 @@
     {% endblock %}
 
     <footer>
-        <h3>
-            <a href="{{ path('books_list') }}">Accueil des livres</a>
-        </h3>
-        <h3>
-            <a href="{{ path('authors_list') }}">Accueil des auteurs</a>
-        </h3>
+        <nav>
+            <ul>
+                <li>
+                    <h3>
+                        <a href="{{ path('books_list') }}">Bibliothèque</a>
+                    </h3>
+                </li>
+                <li>
+                    <h3>
+                        <a href="{{ path('authors_list') }}">Liste des auteurs</a>
+                    </h3>
+                </li>
+            </ul>
+        </nav>
     </footer>
 
 </body>

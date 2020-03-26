@@ -4,7 +4,15 @@
     <main class="milieu">
         <div>
             <h1 class="titre">{{ author.name }} {{ author.firstName }}</h1>
-            <h2 class="soustitre">({{ author.birthDate | date("d/m/Y") }} - {{ author.deathDate | date("d/m/Y") }})</h2>
+            {% if author.birthDate is empty and author.deathDate is empty %}
+                <h2 class="soustitre">(Non renseigné - Non renseigné)</h2>
+            {% elseif author.deathDate is empty %}
+                <h2 class="soustitre">({{ author.birthDate | date("d/m/Y") }} - Non renseigné)</h2>
+            {% elseif author.birthDate is empty %}
+                <h2 class="soustitre">(Non renseigné - {{ author.deathDate | date("d/m/Y") }})</h2>
+            {% else %}
+                <h2 class="soustitre">({{ author.birthDate | date("d/m/Y") }} - {{ author.deathDate | date("d/m/Y") }})</h2>
+            {% endif %}
             <P>Biographie : {{ author.biography }}</P>
         </div>
     </main>

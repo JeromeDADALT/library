@@ -4,6 +4,10 @@ body {
     box-sizing: border-box;
 }
 
+ul {
+    padding-inline-start: unset;
+}
+
 h1 {
     background-color: #8959A8;
     text-align: center;
@@ -67,7 +71,6 @@ main {
 }
 
 .soustitre {
-    font-size: 30px;
     font-style: italic;
 }
 

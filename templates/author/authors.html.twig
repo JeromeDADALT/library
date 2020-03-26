@@ -16,7 +16,15 @@
                 <h2>
                     <a href="{{ path ('author_show', {'id' : author.id }) }}">{{ author.name }} {{ author.firstName }}</a>
                 </h2>
-                <p>({{ author.birthDate | date("d/m/Y") }} - {{ author.deathDate | date("d/m/Y") }})</p>
+                {% if author.birthDate is empty and author.deathDate is empty %}
+                    <p>(Non renseigné - Non renseigné)</p>
+                {% elseif author.deathDate is empty %}
+                    <p>({{ author.birthDate | date("d/m/Y") }} - Non renseigné)</p>
+                {% elseif author.birthDate is empty %}
+                    <p>(Non renseigné - {{ author.deathDate | date("d/m/Y") }})</p>
+                {% else %}
+                    <p>({{ author.birthDate | date("d/m/Y") }} - {{ author.deathDate | date("d/m/Y") }})</p>
+                {% endif %}
                 <div class="lien">
                     <a href="{{ path('update_author', {'id' : author.id}) }}">Modifier le nom de cet auteur</a>
                 </div>

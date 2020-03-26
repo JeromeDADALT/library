@@ -1,9 +1,9 @@
-{% extends 'common/base.html.twig' %}
+{% extends 'admin/common/base.html.twig' %}
 
 {% block library %}
     <h1>Liste des livres de la bibliothèque</h1>
     <div class="search">
-        <form method="get" action="{{ path('book_search') }}">
+        <form method="get" action="{{ path('admin_book_search') }}">
             <p>Recherche par mot-clé</p>
             <input type="text" name="word" placeholder="Entrez un mot à rechercher">
             <button id="searchButton" type="submit">Rechercher</button>
@@ -16,15 +16,15 @@
         {% for book in books %}
             <div class="livres">
                 <h2>
-                    <a href="{{ path ('book_show', {'id' : book.id }) }}">{{ book.title }}</a>
+                    <a href="{{ path ('admin_book_show', {'id' : book.id }) }}">{{ book.title }}</a>
                 </h2>
                 <p>({{ book.nbPages }} pages)</p>
                 <h3>Auteur : {{ book.author }}</h3>
                 <div class="lien">
-                    <a href="{{ path('update_book', {'id' : book.id}) }}">Modifier ce livre</a>
+                    <a href="{{ path('admin_update_book', {'id' : book.id}) }}">Modifier ce livre</a>
                 </div>
                 <div class="lien">
-                    <a href="{{ path('delete_book', {'id' : book.id}) }}">Supprimer ce livre</a>
+                    <a href="{{ path('admin_delete_book', {'id' : book.id}) }}">Supprimer ce livre</a>
                 </div>
             </div>
         {% endfor %}

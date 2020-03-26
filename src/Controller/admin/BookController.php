@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Controller;
+namespace App\Controller\admin;
 
 use App\Entity\Book;
 use App\Repository\BookRepository;
@@ -14,12 +14,12 @@ use Symfony\Component\Routing\Annotation\Route;
 class BookController extends AbstractController
 {
     /**
-     * @Route("/books/list", name="books_list")
+     * @Route("/admin/books/list", name="admin_books_list")
      */
     public function books (BookRepository $bookRepository) {
         $books = $bookRepository->findAll();
 
-        return $this->render('book/books.html.twig',
+        return $this->render('admin/book/books.html.twig',
             [
                 'books' => $books
             ]
@@ -27,19 +27,19 @@ class BookController extends AbstractController
     }
 
     /**
-     * @Route("/book/show/{id}", name="book_show")
+     * @Route("/admin/book/show/{id}", name="admin_book_show")
      */
     public function book (BookRepository $bookRepository, $id) {
         $book = $bookRepository->find($id);
 
-        return $this->render('book/book.html.twig',
+        return $this->render('admin/book/book.html.twig',
         [
             'book' => $book
         ]);
     }
 
     /**
-     * @Route("/book/insert", name="insert_book")
+     * @Route("/admin/book/insert", name="admin_insert_book")
      */
     public function insertBook (EntityManagerInterface $entityManager, Request $request) {
         $book = new Book();
@@ -61,7 +61,7 @@ class BookController extends AbstractController
     }
 
     /**
-     * @Route("/book/delete/{id}", name="delete_book")
+     * @Route("/admin/book/delete/{id}", name="admin_delete_book")
      */
     public function deleteBook (BookRepository $bookRepository, EntityManagerInterface $entityManager, $id ) {
         $book = $bookRepository->find($id);
@@ -70,11 +70,11 @@ class BookController extends AbstractController
         $entityManager->flush();
 
         //return new Response('Le livre a bien été supprimé');
-        return $this->render('book/delete.html.twig');
+        return $this->render('admin/book/delete.html.twig');
     }
 
     /**
-     * @Route("/book/update/{id}", name="update_book")
+     * @Route("/admin/book/update/{id}", name="admin_update_book")
      */
     public function updateBook (BookRepository $bookRepository, EntityManagerInterface $entityManager, $id) {
         $book = $bookRepository->find($id);
@@ -85,17 +85,17 @@ class BookController extends AbstractController
         $entityManager->flush();
 
         //return new Response('La modification a bien été effectuée');
-        return $this->render('book/update.html.twig');
+        return $this->render('admin/book/update.html.twig');
     }
 
     /**
-     * @Route("/book/search", name="book_search")
+     * @Route("/admin/book/search", name="admin_book_search")
      */
     public function searchByResume (BookRepository $bookRepository, Request $request) {
         $word = $request->query->get('word');
         $books = $bookRepository->getByWordInResume($word);
 
-        return $this->render('book/search.html.twig',
+        return $this->render('admin/book/search.html.twig',
             [
                 'books' => $books,
                 'word' => $word

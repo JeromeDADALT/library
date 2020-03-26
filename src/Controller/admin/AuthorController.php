@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Controller;
+namespace App\Controller\admin;
 
 use App\Entity\Author;
 use App\Repository\AuthorRepository;
@@ -14,12 +14,12 @@ use Symfony\Component\Routing\Annotation\Route;
 class AuthorController extends AbstractController
 {
     /**
-     * @Route("/authors/list", name="authors_list")
+     * @Route("/admin/authors/list", name="admin_authors_list")
      */
     public function authors (AuthorRepository $authorRepository) {
         $authors = $authorRepository->findAll();
 
-        return $this->render('author/authors.html.twig',
+        return $this->render('admin/author/authors.html.twig',
             [
                 'authors' => $authors
             ]
@@ -27,19 +27,19 @@ class AuthorController extends AbstractController
     }
 
     /**
-     * @Route("/author/show/{id}", name="author_show")
+     * @Route("/admin/author/show/{id}", name="admin_author_show")
      */
     public function author (AuthorRepository $authorRepository, $id) {
         $author = $authorRepository->find($id);
 
-        return $this->render('author/author.html.twig',
+        return $this->render('admin/author/author.html.twig',
             [
                 'author' => $author
             ]);
     }
 
     /**
-     * @Route("/author/insert", name="insert_author")
+     * @Route("/admin/author/insert", name="admin_insert_author")
      */
     public function insertAuthor (EntityManagerInterface $entityManager, Request $request) {
         $author = new Author();
@@ -63,7 +63,7 @@ class AuthorController extends AbstractController
     }
 
     /**
-     * @Route("/author/delete/{id}", name="delete_author")
+     * @Route("/admin/author/delete/{id}", name="admin_delete_author")
      */
     public function deleteAuthor (AuthorRepository $authorRepository, EntityManagerInterface $entityManager, $id ) {
         $author = $authorRepository->find($id);
@@ -71,31 +71,31 @@ class AuthorController extends AbstractController
         $entityManager->remove($author);
         $entityManager->flush();
 
-        return $this->render('author/delete.html.twig');
+        return $this->render('admin/author/delete.html.twig');
     }
 
     /**
-     * @Route("/author/update/{id}", name="update_author")
+     * @Route("/admin/author/update/{id}", name="admin_update_author")
      */
     public function updateAuthor (AuthorRepository $authorRepository, EntityManagerInterface $entityManager, $id) {
         $author = $authorRepository->find($id);
 
-        $author->setName('nom auteur modifié');
+        $author->setName('nom modifié');
 
         $entityManager->persist($author);
         $entityManager->flush();
 
-        return $this->render('author/update.html.twig');
+        return $this->render('admin/author/update.html.twig');
     }
 
     /**
-     * @Route("/author/search", name="author_search")
+     * @Route("/admin/author/search", name="admin_author_search")
      */
     public function searchByBiography (AuthorRepository $authorRepository, Request $request) {
         $word = $request->query->get('word');
         $authors = $authorRepository->getByWordInBiography($word);
 
-        return $this->render('author/search.html.twig',
+        return $this->render('admin/author/search.html.twig',
             [
                 'authors' => $authors,
                 'word' => $word

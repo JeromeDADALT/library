@@ -1,0 +1,32 @@
+{% extends 'front/common/base.html.twig' %}
+
+{% block authors %}
+    <h1>Liste des auteurs de la bibliothèque</h1>
+    <div class="search">
+        <form method="get" action="{{ path('author_search') }}">
+            <p>Recherche par mot-clé</p>
+            <input type="text" name="word" placeholder="Entrez un mot à rechercher">
+            <button id="searchButton" type="submit">Rechercher</button>
+        </form>
+    </div>
+
+    <main>
+        {% for author in authors %}
+            <div class="livres">
+                <h2>
+                    <a href="{{ path ('author_show', {'id' : author.id }) }}">{{ author.name }} {{ author.firstName }}</a>
+                </h2>
+                {% if author.birthDate is empty and author.deathDate is empty %}
+                    <p>(Non renseigné - Non renseigné)</p>
+                {% elseif author.deathDate is empty %}
+                    <p>({{ author.birthDate | date("d/m/Y") }} - Non renseigné)</p>
+                {% elseif author.birthDate is empty %}
+                    <p>(Non renseigné - {{ author.deathDate | date("d/m/Y") }})</p>
+                {% else %}
+                    <p>({{ author.birthDate | date("d/m/Y") }} - {{ author.deathDate | date("d/m/Y") }})</p>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </main>
+
+{% endblock %}

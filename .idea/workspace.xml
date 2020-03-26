@@ -3,19 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="010c8810-c1af-48cd-893f-efa9e46afd7d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/AuthorController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/admin/AuthorController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/BookController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/admin/BookController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/author/author.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/author/author.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/author/authors.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/author/authors.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/author/delete.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/author/delete.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/author/search.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/author/search.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/author/update.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/author/update.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/book/book.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/book/book.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/book/books.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/book/books.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/book/delete.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/book/delete.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/book/search.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/book/search.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/book/update.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/book/update.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/common/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/common/base.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,7 +148,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/front" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
   </component>
   <component name="RecentsManager">
@@ -171,6 +158,8 @@
       <recent name="$PROJECT_DIR$/templates/book" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/templates/front" />
+      <recent name="$PROJECT_DIR$/src/Controller/front" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/vendor" />
     </key>
@@ -185,7 +174,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1584954403393</updated>
-      <workItem from="1584954404911" duration="62359000" />
+      <workItem from="1584954404911" duration="66122000" />
     </task>
     <servers />
   </component>
@@ -205,10 +194,10 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="451" y="212" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.877@0.23.1440.877" timestamp="1585149232938" />
-    <state x="447" y="274" key="NewPhpClassDialog" timestamp="1585142663442">
+    <state x="447" y="274" key="NewPhpClassDialog" timestamp="1585236650272">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="447" y="274" key="NewPhpClassDialog/0.23.1440.877@0.23.1440.877" timestamp="1585142663442" />
+    <state x="447" y="274" key="NewPhpClassDialog/0.23.1440.877@0.23.1440.877" timestamp="1585236650272" />
     <state x="537" y="381" key="NewPhpFileDialog" timestamp="1584961113597">
       <screen x="0" y="23" width="1440" height="877" />
     </state>

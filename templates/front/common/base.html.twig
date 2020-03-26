@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang=fr>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Library</title>
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+</head>
+<body>
+
+    <header>
+
+    </header>
+
+    {% block library %}
+    {% endblock %}
+
+    {% block bookContent %}
+    {% endblock %}
+
+    {% block bookUpdate %}
+    {% endblock %}
+
+    {% block bookDelete %}
+    {% endblock %}
+
+    {% block authors %}
+    {% endblock %}
+
+    {% block authorContent %}
+    {% endblock %}
+
+    {% block authorUpdate %}
+    {% endblock %}
+
+    {% block authorDelete %}
+    {% endblock %}
+
+    {% block home %}
+    {% endblock %}
+
+    <footer>
+        <nav>
+            <ul>
+                <li>
+                    <h3>
+                        <a href="{{ path('books_list') }}">Bibliothèque</a>
+                    </h3>
+                </li>
+                <li>
+                    <h3>
+                        <a href="{{ path('authors_list') }}">Liste des auteurs</a>
+                    </h3>
+                </li>
+            </ul>
+        </nav>
+    </footer>
+
+</body>
+</html>

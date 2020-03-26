@@ -1,0 +1,12 @@
+{% extends 'front/common/base.html.twig' %}
+
+{% block bookContent %}
+    <main class="milieu">
+        <div>
+            <h1 class="titre">{{ book.title }}</h1>
+            <h2 class="soustitre">{{ book.author }}</h2>
+            <P>Résumé : {{ book.resume }}</P>
+            <p>Nombre de pages : {{ book.nbPages }}</p>
+        </div>
+    </main>
+{% endblock %}

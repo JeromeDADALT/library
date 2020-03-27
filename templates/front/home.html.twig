@@ -2,4 +2,37 @@
 
 {% block home %}
     <h1>Bienvenue sur votre librairie en ligne</h1>
+    <h3>Les 3 derniers livres ajoutés :</h3>
+    <main>
+        {% for book in books %}
+            <div class="livres">
+                <h2>
+                    <a href="{{ path ('book_show', {'id' : book.id }) }}">{{ book.title }}</a>
+                </h2>
+                <p>({{ book.nbPages }} pages)</p>
+                <h3>Auteur : {{ book.author.name }} {{ book.author.firstname }}</h3>
+            </div>
+        {% endfor %}
+    </main>
+
+    <h3>Les 3 derniers auteurs ajoutés :</h3>
+    <main>
+        {% for author in authors %}
+            <div class="livres">
+                <h2>
+                    <a href="{{ path ('author_show', {'id' : author.id }) }}">{{ author.name }} {{ author.firstName }}</a>
+                </h2>
+                {% if author.birthDate is empty and author.deathDate is empty %}
+                    <p>(Non renseigné - Non renseigné)</p>
+                {% elseif author.deathDate is empty %}
+                    <p>({{ author.birthDate | date("d/m/Y") }} - Non renseigné)</p>
+                {% elseif author.birthDate is empty %}
+                    <p>(Non renseigné - {{ author.deathDate | date("d/m/Y") }})</p>
+                {% else %}
+                    <p>({{ author.birthDate | date("d/m/Y") }} - {{ author.deathDate | date("d/m/Y") }})</p>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </main>
+
 {% endblock %}

@@ -19,11 +19,15 @@ class AuthorRepository extends ServiceEntityRepository
         parent::__construct($registry, Author::class);
     }
 
+    //je crée une méthode pour rechercher un mot dans le champs Biography avec une variable $word en paramètre
     public function getByWordInBiography ($word)
     {
+        //je fais appel au contructeur de requêtes dans la table a
         $queryBuilder = $this->createQueryBuilder('a');
+        //je crée la requête pour qui va récupérer les auteurs qui on le terme recherché
         $query = $queryBuilder->select('a')
             ->where('a.biography LIKE :word')
+            //j'ajoute une ligne pour sécuriser ma requête
             ->setParameter('word', '%'.$word.'%')
             ->getQuery();
 

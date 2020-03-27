@@ -4,6 +4,7 @@
 namespace App\Controller\admin;
 
 use App\Entity\Book;
+use App\Repository\AuthorRepository;
 use App\Repository\BookRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -41,12 +42,18 @@ class BookController extends AbstractController
     /**
      * @Route("/admin/book/insert", name="admin_insert_book")
      */
-    public function insertBook (EntityManagerInterface $entityManager, Request $request) {
+    public function insertBook (
+        EntityManagerInterface $entityManager,
+        Request $request,
+        AuthorRepository $authorRepository
+    )
+    {
         $book = new Book();
 
         $title = $request->query->get('title');
         $resume = $request->query->get('resume');
-        $author = $request->query->get('author');
+        //je récupère la variable author via le find du Repository (3 est un id)
+        $author = $authorRepository->find(3);
         $nbPages = $request->query->get('nbPages');
 
         $book->setTitle($title);

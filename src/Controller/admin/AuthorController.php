@@ -1,8 +1,10 @@
 <?php
 
 
+//je note le chemin de ma classe pour que symfony autoloade sans faire de require ou d'import (App=src)
 namespace App\Controller\admin;
 
+//je fais un use de l'entité author pour pouvoir l'utiliser
 use App\Entity\Author;
 use App\Repository\AuthorRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -11,14 +13,18 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+//je crée la classe du même nom que mon fichier et je fais appel à AbstractController pour pouvoir utiliser des services de symfony
 class AuthorController extends AbstractController
 {
+    //je crée la route et la méthode en faisant appel à l'autowire de symfony pour instancier le Repository
     /**
      * @Route("/admin/authors/list", name="admin_authors_list")
      */
     public function authors (AuthorRepository $authorRepository) {
+        //je récupère les auteurs en utilisant le Repository qui me permet de faire un select
         $authors = $authorRepository->findAll();
 
+        //je retourne le résultat vers une page html twig
         return $this->render('admin/author/authors.html.twig',
             [
                 'authors' => $authors
@@ -26,6 +32,7 @@ class AuthorController extends AbstractController
         );
     }
 
+    //ici je fais de même mais en incluant une wildcard id : dans la route, en paramètre de la méthode et dans le find
     /**
      * @Route("/admin/author/show/{id}", name="admin_author_show")
      */
@@ -44,6 +51,7 @@ class AuthorController extends AbstractController
     public function insertAuthor (EntityManagerInterface $entityManager, Request $request) {
         $author = new Author();
 
+        //pour insérer, je fais appel à la classe Request pour récupérer les champs
         $name = $request->query->get('name');
         $firstName = $request->query->get('firstName');
         $birthDate = $request->query->get('birthDate');
@@ -56,6 +64,7 @@ class AuthorController extends AbstractController
         $author->setDeathDate($deathDate);
         $author->setBiography($biography);
 
+        //j'utlise l'EntityManagerInterface pour enregistrer et envoyer la variable $author
         $entityManager -> persist($author);
         $entityManager -> flush();
 
@@ -91,6 +100,7 @@ class AuthorController extends AbstractController
     /**
      * @Route("/admin/author/search", name="admin_author_search")
      */
+    //je fais appel au Repository pour accéder à la méthode getByWordInBiography spécialement créée pour cette méthode
     public function searchByBiography (AuthorRepository $authorRepository, Request $request) {
         $word = $request->query->get('word');
         $authors = $authorRepository->getByWordInBiography($word);

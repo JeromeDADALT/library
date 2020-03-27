@@ -26,7 +26,7 @@ class Book {
     private $resume;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\ManyToOne(targetEntity="Author", inversedBy="books")
      */
     private $author;
 
@@ -63,16 +63,6 @@ class Book {
         $this->resume = $resume;
     }
 
-    public function getAuthor(): ?string
-    {
-        return $this->author;
-    }
-
-    public function setAuthor(string $author)
-    {
-        $this->author = $author;
-    }
-
     public function getNbPages()
     {
         return $this->nbPages;
@@ -81,6 +71,22 @@ class Book {
     public function setNbPages($nbPages)
     {
         $this->nbPages = $nbPages;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAuthor()
+    {
+        return $this->author;
+    }
+
+    /**
+     * @param mixed $author
+     */
+    public function setAuthor($author): void
+    {
+        $this->author = $author;
     }
 
 }

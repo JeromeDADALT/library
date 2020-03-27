@@ -41,6 +41,11 @@ class Author
      */
     private $biography;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Book", mappedBy="author")
+     */
+    private $books;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -105,4 +110,21 @@ class Author
 
         return $this;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getBooks()
+    {
+        return $this->books;
+    }
+
+    /**
+     * @param mixed $books
+     */
+    public function setBooks($books): void
+    {
+        $this->books = $books;
+    }
+
 }

@@ -19,7 +19,7 @@
                     <a href="{{ path ('admin_book_show', {'id' : book.id }) }}">{{ book.title }}</a>
                 </h2>
                 <p>({{ book.nbPages }} pages)</p>
-                <h3>Auteur : {{ book.author }}</h3>
+                <h3>Auteur : {{ book.author.name }} {{ book.author.firstname }}</h3>
                 <div class="lien">
                     <a href="{{ path('admin_update_book', {'id' : book.id}) }}">Modifier ce livre</a>
                 </div>

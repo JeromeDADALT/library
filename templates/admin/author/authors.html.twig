@@ -1,16 +1,21 @@
 {% extends 'admin/common/base.html.twig' %}
+{# j'étends la base commune à toutes les pages #}
 
+{# je fais appel au block authors de ma base commune #}
 {% block authors %}
     <h1>Liste des auteurs de la bibliothèque</h1>
     <div class="search">
+        {# je crée un formulaire en notant le chemin vers la route de la méthode utilisée via le path #}
         <form method="get" action="{{ path('admin_author_search') }}">
             <p>Recherche par mot-clé</p>
+            {# je crée un input avec en name le nom déclaré dans la méthode qui correspond à la recherche #}
             <input type="text" name="word" placeholder="Entrez un mot à rechercher">
             <button id="searchButton" type="submit">Rechercher</button>
         </form>
     </div>
 
     <main>
+        {# je crée une boucle qui récupère les résultats càd les auteurs, en incluant une condition qui gère les cas de date absentes #}
         {% for author in authors %}
             <div class="livres">
                 <h2>
@@ -25,6 +30,14 @@
                 {% else %}
                     <p>({{ author.birthDate | date("d/m/Y") }} - {{ author.deathDate | date("d/m/Y") }})</p>
                 {% endif %}
+
+                <h4>Livres</h4>
+                {#j'affiche le titre de chaque livre lié à l'auteur;
+                la propriété $books créée dans author renvoie un array avec tous les livres (relation bidirectionnelle) #}
+                {% for book in author.books %}
+                    <p>{{ book.title }}</p>
+                {% endfor %}
+
                 <div class="lien">
                     <a href="{{ path('admin_update_author', {'id' : author.id}) }}">Modifier le nom de cet auteur</a>
                 </div>

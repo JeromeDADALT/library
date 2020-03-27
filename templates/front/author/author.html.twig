@@ -13,6 +13,12 @@
             {% else %}
                 <h2 class="soustitre">({{ author.birthDate | date("d/m/Y") }} - {{ author.deathDate | date("d/m/Y") }})</h2>
             {% endif %}
+
+            <h4>Livres</h4>
+            {% for book in author.books %}
+                <p>{{ book.title }}</p>
+            {% endfor %}
+
             <P>Biographie : {{ author.biography }}</P>
         </div>
     </main>

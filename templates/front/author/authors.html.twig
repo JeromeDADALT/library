@@ -25,6 +25,14 @@
                 {% else %}
                     <p>({{ author.birthDate | date("d/m/Y") }} - {{ author.deathDate | date("d/m/Y") }})</p>
                 {% endif %}
+
+                <h4>Livres</h4>
+                {#j'affiche le titre de chaque livre lié à l'auteur;
+                la propriété $books créée dans author renvoie un array avec tous les livres (relation bidirectionnelle) #}
+                {% for book in author.books %}
+                    <p>{{ book.title }}</p>
+                {% endfor %}
+
             </div>
         {% endfor %}
     </main>

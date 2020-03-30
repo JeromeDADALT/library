@@ -4,6 +4,7 @@
 namespace App\Controller\admin;
 
 use App\Entity\Book;
+use App\Form\BookType;
 use App\Repository\AuthorRepository;
 use App\Repository\BookRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -42,7 +43,28 @@ class BookController extends AbstractController
     /**
      * @Route("/admin/book/insert", name="admin_insert_book")
      */
-    public function insertBook (
+    public  function insertBook (Request $request, EntityManagerInterface $entityManager) {
+        //je crée unn nouvelle instance de Book et je la mets dans une variable
+        $book = new Book();
+        //je crée une un formulaire en faisant appel au gabarit de formulaire BookType et je le mets dans un variable
+        //je rajoute la variable $book en paramètre de createForm pour relier l'instance avec le formulaire
+        $formBook = $this->createForm(BookType::class, $book);
+        //handelrequest permet de dire au formulaire de récupérer les données du POST
+        $formBook->handleRequest($request);
+        //je rajoute une condition pour vérifier si le formulaire a été envoyé et est valide
+        if ($formBook->isSubmitted() && $formBook->isValid()) {
+            //si c'est ok je persiste et flush mon instance $book
+            $entityManager->persist($book);
+            $entityManager->flush();
+        }
+        //je renvoie le formulaire créé dans le fichier twig tout en créant la vue
+        return $this->render('admin/book/insert.html.twig',
+            [
+                'formBook' => $formBook->createView()
+            ]
+            );
+    }
+    /*public function insertBook (
         EntityManagerInterface $entityManager,
         Request $request,
         AuthorRepository $authorRepository
@@ -65,7 +87,7 @@ class BookController extends AbstractController
         $entityManager -> flush();
 
         return new Response('Le livre est bien enregistré');
-    }
+    }*/
 
     /**
      * @Route("/admin/book/delete/{id}", name="admin_delete_book")

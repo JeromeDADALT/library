@@ -1,11 +1,29 @@
 {% extends 'admin/common/base.html.twig' %}
 
 {% block authorUpdate %}
-
+    <h2>Modification de l'auteur</h2>
     <main>
-        <div>
-            <p>La modification de l'auteur a bien été effectuée</p>
-        </div>
+        {{ form_start(formAuthor) }}
+            <div class="d-flex flex-column align-items-center">
+                <div class="rowForm">
+                {{ form_row(formAuthor.name, {'attr': {'class': 'form-control'} }) }}
+                </div>
+                <div class="rowForm">
+                {{ form_row(formAuthor.firstName, {'attr': {'class': 'form-control'} }) }}
+                </div>
+                <div class="rowForm">
+                {{ form_row(formAuthor.birthDate, {'attr': {'class': 'form-control'} }) }}
+                </div>
+                <div class="rowForm">
+                {{ form_row(formAuthor.deathDate, {'attr': {'class': 'form-control'} }) }}
+                </div>
+                <div class="rowForm">
+                {{ form_row(formAuthor.biography, {'attr': {'class': 'form-control'} }) }}
+                </div>
+                <div>
+                    {{ form_row(formAuthor.submit, {'attr': {'class': 'btn btn-primary'} }) }}
+                </div>
+            </div>
+        {{ form_end(formAuthor) }}
     </main>
-
 {% endblock %}

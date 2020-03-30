@@ -6,6 +6,7 @@ namespace App\Controller\admin;
 
 //je fais un use de l'entité author pour pouvoir l'utiliser
 use App\Entity\Author;
+use App\Form\AuthorType;
 use App\Repository\AuthorRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -50,6 +51,19 @@ class AuthorController extends AbstractController
      */
     public function insertAuthor (EntityManagerInterface $entityManager, Request $request) {
         $author = new Author();
+        $formAuthor = $this->createForm(AuthorType::class, $author);
+        $formAuthor->handleRequest($request);
+        if ($formAuthor->isSubmitted() && $formAuthor->isValid()) {
+            $entityManager->persist($author);
+            $entityManager->flush();
+        }
+        return $this->render('admin/author/insert.html.twig',
+            [
+                'formAuthor' => $formAuthor->createView()
+            ]);
+    }
+    /*public function insertAuthor (EntityManagerInterface $entityManager, Request $request) {
+        $author = new Author();
 
         //pour insérer, je fais appel à la classe Request pour récupérer les champs
         $name = $request->query->get('name');
@@ -69,7 +83,7 @@ class AuthorController extends AbstractController
         $entityManager -> flush();
 
         return new Response("L'auteur est bien enregistré");
-    }
+    }*/
 
     /**
      * @Route("/admin/author/delete/{id}", name="admin_delete_author")
@@ -86,7 +100,24 @@ class AuthorController extends AbstractController
     /**
      * @Route("/admin/author/update/{id}", name="admin_update_author")
      */
-    public function updateAuthor (AuthorRepository $authorRepository, EntityManagerInterface $entityManager, $id) {
+    public function updateAuthor (EntityManagerInterface $entityManager,
+                                  Request $request,
+                                  AuthorRepository $authorRepository,
+                                  $id)
+    {
+        $author = $authorRepository->find($id);
+        $formAuthor = $this->createForm(AuthorType::class, $author);
+        $formAuthor->handleRequest($request);
+        if ($formAuthor->isSubmitted() && $formAuthor->isValid()) {
+            $entityManager->persist($author);
+            $entityManager->flush();
+        }
+        return $this->render('admin/author/update.html.twig',
+            [
+                'formAuthor' => $formAuthor->createView()
+            ]);
+    }
+    /*public function updateAuthor (AuthorRepository $authorRepository, EntityManagerInterface $entityManager, $id) {
         $author = $authorRepository->find($id);
 
         $author->setName('nom modifié');
@@ -95,7 +126,7 @@ class AuthorController extends AbstractController
         $entityManager->flush();
 
         return $this->render('admin/author/update.html.twig');
-    }
+    }*/
 
     /**
      * @Route("/admin/author/search", name="admin_author_search")

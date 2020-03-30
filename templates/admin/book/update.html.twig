@@ -1,11 +1,43 @@
 {% extends 'admin/common/base.html.twig' %}
 
 {% block bookUpdate %}
-
+    <h2>Modification du livre</h2>
     <main>
-        <div>
-            <p>La modification du livre a bien été effectuée</p>
+    {{ form_start(formBook) }}
+        <div class="d-flex flex-column align-items-center">
+            <div class="rowForm">
+            {{ form_row(formBook.title, {'attr': {'class': 'form-control'} }) }}
+            </div>
+            <div class="rowForm">
+            {{ form_row(formBook.resume, {'attr': {'class': 'form-control'} }) }}
+            </div>
+            <div class="rowForm">
+            {{ form_row(formBook.nbPages, {'attr': {'class': 'form-control'} }) }}
+            </div>
+            <div>
+            {{ form_row(formBook.submit, {'attr': {'class': 'btn btn-primary'} }) }}
+            </div>
         </div>
+    {{ form_end(formBook) }}
     </main>
 
+    {#<main class="milieu">
+        {{ form_start(formBook) }}
+
+            {{ form_label(formBook.title) }}
+            {{ form_widget(formBook.title) }}
+            {{ form_errors(formBook.title) }}
+
+            {{ form_label(formBook.resume) }}
+            {{ form_widget(formBook.resume) }}
+            {{ form_errors(formBook.resume) }}
+
+            {{ form_label(formBook.nbPages) }}
+            {{ form_widget(formBook.nbPages) }}
+            {{ form_errors(formBook.nbPages) }}
+
+            {{ form_widget(formBook.submit) }}
+
+        {{ form_end(formBook) }}
+    </main>#}
 {% endblock %}

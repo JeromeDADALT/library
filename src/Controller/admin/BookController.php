@@ -44,14 +44,14 @@ class BookController extends AbstractController
      * @Route("/admin/book/insert", name="admin_insert_book")
      */
     public  function insertBook (Request $request, EntityManagerInterface $entityManager) {
-        //je crée unn nouvelle instance de Book et je la mets dans une variable
+        //je crée une nouvelle instance de Book et je la mets dans une variable
         $book = new Book();
         //je crée une un formulaire en faisant appel au gabarit de formulaire BookType et je le mets dans un variable
         //je rajoute la variable $book en paramètre de createForm pour relier l'instance avec le formulaire
         $formBook = $this->createForm(BookType::class, $book);
         //handelrequest permet de dire au formulaire de récupérer les données du POST
         $formBook->handleRequest($request);
-        //je rajoute une condition pour vérifier si le formulaire a été envoyé et est valide
+        //je rajoute une condition pour vérifier si le formulaire a été envoyé et est valide vis à vis des contraintes de la bdd
         if ($formBook->isSubmitted() && $formBook->isValid()) {
             //si c'est ok je persiste et flush mon instance $book
             $entityManager->persist($book);
@@ -105,7 +105,33 @@ class BookController extends AbstractController
     /**
      * @Route("/admin/book/update/{id}", name="admin_update_book")
      */
-    public function updateBook (BookRepository $bookRepository, EntityManagerInterface $entityManager, $id) {
+    public  function updateBook (Request $request,
+                                 EntityManagerInterface $entityManager,
+                                 BookRepository $bookRepository,
+                                 $id)
+    {
+        //je récupère un livre existant via son id
+        $book = $bookRepository->find($id);
+        //je crée une un formulaire en faisant appel au gabarit de formulaire BookType et je le mets dans un variable
+        //je rajoute la variable $book en paramètre de createForm pour relier l'instance avec le formulaire
+        $formBook = $this->createForm(BookType::class, $book);
+        //handelrequest permet de dire au formulaire de récupérer les données du POST
+        $formBook->handleRequest($request);
+        //je rajoute une condition pour vérifier si le formulaire a été envoyé et est valide vis à vis des contraintes de la bdd
+        if ($formBook->isSubmitted() && $formBook->isValid()) {
+            //si c'est ok je persiste et flush mon instance $book
+            $entityManager->persist($book);
+            $entityManager->flush();
+        }
+        //je renvoie le formulaire créé dans le fichier twig tout en créant la vue
+        return $this->render('admin/book/update.html.twig',
+            [
+                'formBook' => $formBook->createView()
+            ]
+        );
+    }
+
+    /*public function updateBook (BookRepository $bookRepository, EntityManagerInterface $entityManager, $id) {
         $book = $bookRepository->find($id);
 
         $book->setTitle('titre encore modifié');
@@ -115,7 +141,7 @@ class BookController extends AbstractController
 
         //return new Response('La modification a bien été effectuée');
         return $this->render('admin/book/update.html.twig');
-    }
+    }*/
 
     /**
      * @Route("/admin/book/search", name="admin_book_search")

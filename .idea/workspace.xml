@@ -3,7 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="010c8810-c1af-48cd-893f-efa9e46afd7d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/admin/AuthorController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/admin/AuthorController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/admin/BookController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/admin/BookController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Book.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Book.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/author/delete.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/author/delete.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/book/delete.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/book/delete.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/common/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/common/base.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -176,7 +182,7 @@
       <option name="presentableId" value="Default" />
       <updated>1584954403393</updated>
       <workItem from="1584954404911" duration="66842000" />
-      <workItem from="1585242624345" duration="30318000" />
+      <workItem from="1585242624345" duration="32714000" />
     </task>
     <servers />
   </component>

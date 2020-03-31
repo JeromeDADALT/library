@@ -56,6 +56,7 @@ class AuthorController extends AbstractController
         if ($formAuthor->isSubmitted() && $formAuthor->isValid()) {
             $entityManager->persist($author);
             $entityManager->flush();
+            $this->addFlash('success', "L'auteur a bien été ajouté");
         }
         return $this->render('admin/author/insert.html.twig',
             [
@@ -93,6 +94,7 @@ class AuthorController extends AbstractController
 
         $entityManager->remove($author);
         $entityManager->flush();
+        $this->addFlash('success', "L'auteur a bien été supprimé");
 
         return $this->render('admin/author/delete.html.twig');
     }
@@ -111,6 +113,7 @@ class AuthorController extends AbstractController
         if ($formAuthor->isSubmitted() && $formAuthor->isValid()) {
             $entityManager->persist($author);
             $entityManager->flush();
+            $this->addFlash('success', "L'auteur a bien été mis à jour");
         }
         return $this->render('admin/author/update.html.twig',
             [

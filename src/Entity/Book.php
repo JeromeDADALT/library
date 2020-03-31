@@ -24,7 +24,7 @@ class Book {
 
     /**
      * @ORM\Column(type="text")
-     * @Assert\Length(min="20", minMessage="Le résumé doit contenir au minimum 20 caractères")
+     * @Assert\Length(min=20, minMessage="Le résumé doit contenir au minimum 20 caractères")
      */
     private $resume;
 

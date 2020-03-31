@@ -15,6 +15,12 @@
     <header>
 
     </header>
+    {# je fais apparaitre les messages flash s'il y en a #}
+    {% for message in app.flashes('success') %}
+        <div class="flashes">
+            {{ message }}
+        </div>
+    {% endfor %}
 
     <!--je crée des blocks que je vais pouvoir inclure dans les fichiers twig pour isoler et pouvoir travailler sur des parties-->
     {% block library %}

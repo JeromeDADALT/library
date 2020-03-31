@@ -56,6 +56,8 @@ class BookController extends AbstractController
             //si c'est ok je persiste et flush mon instance $book
             $entityManager->persist($book);
             $entityManager->flush();
+            //j'ajoute un message flash
+            $this->addFlash('success', 'Le livre a bien été ajouté');
         }
         //je renvoie le formulaire créé dans le fichier twig tout en créant la vue
         return $this->render('admin/book/insert.html.twig',
@@ -97,6 +99,7 @@ class BookController extends AbstractController
 
         $entityManager->remove($book);
         $entityManager->flush();
+        $this->addFlash('success', 'Le livre a bien été supprimé');
 
         //return new Response('Le livre a bien été supprimé');
         return $this->render('admin/book/delete.html.twig');
@@ -122,6 +125,7 @@ class BookController extends AbstractController
             //si c'est ok je persiste et flush mon instance $book
             $entityManager->persist($book);
             $entityManager->flush();
+            $this->addFlash('success', 'Le livre a bien été mis à jour');
         }
         //je renvoie le formulaire créé dans le fichier twig tout en créant la vue
         return $this->render('admin/book/update.html.twig',

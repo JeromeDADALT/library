@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\BookRepository")
@@ -17,16 +18,20 @@ class Book {
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Merci de remplir le titre")
      */
     private $title;
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\Length(min="20", minMessage="Le résumé doit contenir au minimum 20 caractères")
      */
     private $resume;
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\GreaterThan(20, message="Le livre doit avoir au minimum 20 pages")
+     * @Assert\LessThan(3000, message="Le livre doit avoir au maximum 3000 pages")
      */
     private $nbPages;
 

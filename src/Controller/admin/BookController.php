@@ -12,6 +12,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\String\Slugger\SluggerInterface;
 
 class BookController extends AbstractController
 {
@@ -43,7 +44,7 @@ class BookController extends AbstractController
     /**
      * @Route("/admin/book/insert", name="admin_insert_book")
      */
-    public  function insertBook (Request $request, EntityManagerInterface $entityManager) {
+    public  function insertBook (Request $request, EntityManagerInterface $entityManager, SluggerInterface $slugger) {
         //je crée une nouvelle instance de Book et je la mets dans une variable
         $book = new Book();
         //je crée une un formulaire en faisant appel au gabarit de formulaire BookType et je le mets dans un variable
@@ -53,6 +54,25 @@ class BookController extends AbstractController
         $formBook->handleRequest($request);
         //je rajoute une condition pour vérifier si le formulaire a été envoyé et est valide vis à vis des contraintes de la bdd
         if ($formBook->isSubmitted() && $formBook->isValid()) {
+
+            //je déclare une variable qui récupère les données de mon champs 'cover' du formulaire
+            $cover = $formBook->get('cover')->getData();
+            //je mets une condition if pour faire apparaitre l'image que quand il y a une image upoladée
+            if ($cover) {
+                $originalFilename = pathinfo($cover->getClientOriginalName(), PATHINFO_FILENAME);
+                //aprés avoir récupéré le nom du fichier, je m'assure que le nom soit sécurisé
+                $safeFilename = $slugger->slug($originalFilename);
+                //je rajoute un numéro à chaque nom d'image pour ne pas avoir de doublon
+                $newFilename = $safeFilename . '-' . uniqid() . '.' . $cover->guessExtension();
+                //je déplace l'image vers le dossier 'img' qui stocke les images
+                $cover->move(
+                    $this->getParameter('img'),
+                    $newFilename
+                );
+                //je mets à jour le cover de l'entité Book avec ce nouveau nom de fichier
+                $book->setCover($newFilename);
+            }
+
             //si c'est ok je persiste et flush mon instance $book
             $entityManager->persist($book);
             $entityManager->flush();

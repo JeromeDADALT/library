@@ -7,6 +7,11 @@
             <h2 class="soustitre">{{ book.author.name }} {{ book.author.firstname }}</h2>
             <P>Résumé : {{ book.resume }}</P>
             <p>Nombre de pages : {{ book.nbPages }}</p>
+            {% if book.cover %}
+            <div>
+                <img class="img-fluid img-thumbnail" src="{{ asset('img/' ~ book.cover) }}" alt="couverture du livre">
+            </div>
+            {% endif %}
         </div>
     </main>
 {% endblock %}

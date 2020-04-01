@@ -40,6 +40,12 @@ class Book {
      */
     private $author;
 
+    //je rajoute une colonne dans la table book qui va stocker le nom du fichier image
+    /**
+     * @ORM\Column(type="string")
+     */
+    private $cover;
+
     /**
      * @return mixed
      */
@@ -88,6 +94,22 @@ class Book {
         $this->author = $author;
 
         return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCover()
+    {
+        return $this->cover;
+    }
+
+    /**
+     * @param mixed $cover
+     */
+    public function setCover($cover): void
+    {
+        $this->cover = $cover;
     }
 
 }

@@ -6,6 +6,7 @@ use App\Entity\Author;
 use App\Entity\Book;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -31,8 +32,15 @@ class BookType extends AbstractType
                 [
                     'class' => Author::class,
                     'choice_label' => 'name'
-                ]
-                )
+                ])
+            //j'ajoute un champs 'couverture' qui est de type File
+            ->add('cover', FileType::class, [
+                'label' => 'Couverture',
+                //je spécifie que ce champs n'est pas associé aux propriétés de l'entité Book
+                'mapped' => false,
+                //j'enlève le require pour ne pas être obligé d'uploader l'image à chaque fois
+                'required' => false
+            ])
             ->add('submit', SubmitType::class)
         ;
     }

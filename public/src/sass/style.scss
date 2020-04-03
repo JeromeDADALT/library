@@ -10,3 +10,17 @@ body {
 .grandBouton {
   @include btn(200px);
 }
+
+.button-more {
+  padding: 20px;
+  color: white;
+  border: none;
+  background-color: lightcoral;
+  border-radius: 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.livres {
+  display: none;
+}

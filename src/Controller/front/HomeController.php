@@ -17,7 +17,8 @@ class HomeController extends AbstractController
     public function home (BookRepository $bookRepository, AuthorRepository $authorRepository) {
         //je fais appel à la méthode findBy en passant par un tableau vide, puis en changeant l'ordre,
         //puis limitant à 3 éléments en partant du début
-        $lastBooks = $bookRepository->findBy([], ['id' => 'DESC'], 3, 0);
+        //$lastBooks = $bookRepository->findBy([], ['id' => 'DESC'], 3, 0);
+        $lastBooks = $bookRepository->findAll();
         $lastAuthors = $authorRepository->findBy([], ['id' => 'DESC'], 3, 0);
 
         // AUTRE METHODE (pas optimisée)

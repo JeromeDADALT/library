@@ -30,6 +30,56 @@ $(document).ready(function() {
 
     });
 
+    $('.livres').on('mouseenter', function() {
+        //je veux changer la bordure de taille
+
+        //cela marche mais mauvaise pratique : on fait du css en js !
+        //$(this).css('border-width', '10px');
+        //$(this).css('background-color', 'lightblue');
+
+        //là aussi, mauvaise pratique car possibilité de faire ça directement en css avec un hover
+        //si vous avez le choix entre js ou css, choisissez du CSS
+        $(this).addClass('bookHover');
+
+        // pour tous les livres, sauf celui sur lequel on a passé la souris, on réduit la taille
+        $('.livres').not($(this)).addClass('bookSmall');
+    });
+
+    $('.livres').on('mouseleave', function() {
+        // remettre la bordure à la taille d'origine et la couleur de fond
+
+        //$(this).css('border-width', '1px');
+        //$(this).css('background-color', 'white');
+
+        $(this).removeClass('bookHover');
+
+        //on rétablit la taille initiale
+        $('.livres').removeClass('bookSmall');
+    });
+
+
+    //exemple de code pour faire une inscription à une newsletter avec une modal
+    // il faudra créer au préalable le bouton d’inscription à la newsletter ainsi que les classes utilisées
+    $('.header-newsletter').on('click', function() {
+        $('.popup-newsletter').addClass('popup-newsletter-show');
+    });
+
+
+    // au clic n'importe ou dans ma page
+    $('body').on('click', function (e) {
+
+        // e = evenement, donc c'est toutes les infos relatives au clic que je viens de faire
+        // avec e.target je regarde si l'élement cliqué n'est pas le bouton de newsletter
+        // ou la popup en elle même pour éviter de masquer ma popup si c'est le cas
+        if (!$('.header-newsletter').is(e.target) && !$('.popup-newsletter').is(e.target)) {
+            // dans ce cas là je masque ma popup
+            $('.popup-newsletter').removeClass('popup-newsletter-show');
+        }
+
+    });
+
+
+
 });
 
 

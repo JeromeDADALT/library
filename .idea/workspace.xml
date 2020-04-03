@@ -3,12 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="010c8810-c1af-48cd-893f-efa9e46afd7d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/admin/BookController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/admin/BookController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Book.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Book.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/BookType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/BookType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/book/book.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/book/book.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/book/update.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/book/update.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dist/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/dist/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dist/css/style.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/public/dist/css/style.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/src/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/src/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/src/sass/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/src/sass/style.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/front/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/front/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/front/author/authors.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/front/author/authors.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/front/common/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/front/common/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/front/home.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/front/home.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -182,7 +184,7 @@
       <option name="presentableId" value="Default" />
       <updated>1584954403393</updated>
       <workItem from="1584954404911" duration="66842000" />
-      <workItem from="1585242624345" duration="49512000" />
+      <workItem from="1585242624345" duration="66775000" />
     </task>
     <servers />
   </component>

@@ -6,7 +6,8 @@
         <form method="get" action="{{ path('author_search') }}">
             <p>Recherche par mot-clé</p>
             <input type="text" name="word" placeholder="Entrez un mot à rechercher">
-            <button id="searchButton" type="submit">Rechercher</button>
+            <button class="grandBouton" type="submit">Rechercher</button>
+            {#j'ai enlevé id="searchButton" de button pour appliquer le mixin avec sass#}
         </form>
     </div>
 

@@ -7,6 +7,14 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{% block title %} {% endblock %}</title>
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    {#ne faire qu'un seul fichier css si présence de scss,
+    il faudrait enlever la ligne du dessus et mettre le css dans le fichier scss #}
+    <link rel="stylesheet" href="{{ asset('dist/css/style.css') }}">
+    <script
+            src="https://code.jquery.com/jquery-3.4.1.js"
+            integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+            crossorigin="anonymous"></script>
+    <script src="{{ asset('src/js/app.js') }}"></script>
 </head>
 <body>
 
@@ -49,12 +57,12 @@
             <ul>
                 <li>
                     <h3>
-                        <a href="{{ path('books_list') }}">Bibliothèque</a>
+                        <a class="colorNav" href="{{ path('books_list') }}">Bibliothèque</a>
                     </h3>
                 </li>
                 <li>
                     <h3>
-                        <a href="{{ path('authors_list') }}">Liste des auteurs</a>
+                        <a class="colorNav" href="{{ path('authors_list') }}">Liste des auteurs</a>
                     </h3>
                 </li>
             </ul>

@@ -1,0 +1,31 @@
+$rose: #cac3c9;
+
+/* ou par une classe
+
+.blue {
+  color: #1337ca;
+}
+*/
+
+/* exemple de mixin */
+@mixin btn($width) {
+  width: $width;
+  color: red;
+  font-size: 25px;
+  font-weight: bold;
+  border: 1px solid blue;
+  height: 40px;
+  border-radius: 10%;
+  margin-left: 10px;
+}
+
+/* exemple d'héritage avec extend */
+%btn {
+  background-color: #5eb5e0;
+  padding: 10px;
+}
+
+.petitBouton {
+  @extend %btn;
+  width: 50px;
+}

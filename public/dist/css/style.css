@@ -1,0 +1,44 @@
+@charset "UTF-8";
+/* ou par une classe
+
+.blue {
+  color: #1337ca;
+}
+*/
+/* exemple de mixin */
+/* exemple d'héritage avec extend */
+.petitBouton {
+  background-color: #5eb5e0;
+  padding: 10px;
+}
+
+.petitBouton {
+  width: 50px;
+}
+
+.colorNav {
+  color: #cd5b19;
+}
+
+@media screen and (min-width: 200px) and (max-width: 640px) {
+  .bloc {
+    display: block;
+    clear: both;
+  }
+}
+body {
+  background-color: #cac3c9;
+}
+
+.grandBouton {
+  width: 200px;
+  color: red;
+  font-size: 25px;
+  font-weight: bold;
+  border: 1px solid blue;
+  height: 40px;
+  border-radius: 10%;
+  margin-left: 10px;
+}
+
+/*# sourceMappingURL=style.css.map */

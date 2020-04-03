@@ -1,0 +1,12 @@
+@import "var";
+@import "home";
+@import "responsive";
+
+
+body {
+  background-color: $rose;
+}
+
+.grandBouton {
+  @include btn(200px);
+}
